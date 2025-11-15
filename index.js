@@ -1,4 +1,6 @@
 let addToCartItem = [];
+let spinnerStartTime = null;
+
 const removeActive = () => {
   const categoryBtn = document.querySelectorAll(".category-btn");
   categoryBtn.forEach((btn) => btn.classList.remove("active"));
@@ -6,11 +8,17 @@ const removeActive = () => {
 
 const manageSpinner = (status) => {
   if (status == true) {
+    spinnerStartTime = Date.now();
     document.getElementById("spinner").classList.remove("hidden");
     document.getElementById("trees-container").classList.add("hidden");
   } else {
-    document.getElementById("trees-container").classList.remove("hidden");
-    document.getElementById("spinner").classList.add("hidden");
+    const elapsed = Date.now() - spinnerStartTime;
+    const minTime = 1500; // 1.5 seconds
+    const delay = elapsed < minTime ? minTime - elapsed : 0;
+    setTimeout(() => {
+      document.getElementById("trees-container").classList.remove("hidden");
+      document.getElementById("spinner").classList.add("hidden");
+    }, delay);
   }
 };
 

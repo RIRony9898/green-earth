@@ -172,10 +172,18 @@
             </div>
 
             <!-- All products and Spinner-->
-            <div class="md:col-span-8">
+            <div class="md:col-span-8 relative">
               <!-- Spinner Setup -->
-              <div id="spinner" class="hidden text-center p-10">
-                <span class="loading loading-spinner text-error"></span>
+              <div
+                id="spinner"
+                class="absolute inset-0 bg-white bg-opacity-90 flex flex-col justify-center items-center z-10 rounded-lg"
+              >
+                <span
+                  class="loading loading-spinner loading-lg text-green-600 mb-4"
+                ></span>
+                <p class="text-lg font-semibold text-gray-700">
+                  Loading Trees...
+                </p>
               </div>
 
               <!-- product Container -->
