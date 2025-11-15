@@ -73,12 +73,12 @@ const displayTrees = (trees) => {
 
     const treesCart = document.createElement("div");
     treesCart.innerHTML = `
-                <div id="${tree.id}" class=" bg-white rounded-[16px] p-4 h-full">
+                <div id="${tree.id}" class="bg-white rounded-[16px] p-4 h-[400px] flex flex-col">
 
                                 <img src="${tree.image}" class="w-full h-[200px] bg-[#EDEDED] rounded-[8px] mb-3">
 
                                 <h4 onclick="treeDetailsHandler(${tree.id})" class="font-semibold mb-1 cursor-pointer">${tree.name}</h4>
-                                <p>${shortDescription}</p>
+                                <p class="flex-1 overflow-hidden">${shortDescription}</p>
 
                             <!-- Trees Item Category and Price -->
                             <div class="flex justify-between items-center my-3">
